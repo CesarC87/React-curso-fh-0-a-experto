@@ -1,10 +1,9 @@
 
 
-export const TodoItem = ( { todo } ) => {
+export const TodoItem = ( { todo , onToggleTodo } ) => {
     return (
         <li>
-            <span>{todo.description}</span>
-            <button>Borrar</button>
+            <span onClick={ () => onToggleTodo(todo.id)}>{todo.description}</span>            
         </li>
     )
 }

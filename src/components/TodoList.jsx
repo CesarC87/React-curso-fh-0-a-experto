@@ -1,13 +1,25 @@
 import { TodoItem } from "./TodoItem"
 
 
-export const TodoList = ( { todos = [] }) => {
+export const TodoList = ( { todos = [] , onRemoveTodo, onToggleTodo }) => {
     console.log(todos)
+
+    const handleRemove = (todo) => {
+        onRemoveTodo(todo)
+    }
     return (
         <ul>
             {
                 todos.map( todo => {
-                    return <TodoItem key={todo.id} todo={todo}/>
+                    console.log('todo desde map todoList', todo)
+                    return (
+                        <>
+                            <TodoItem key={todo.id} todo={todo} onToggleTodo={ onToggleTodo }/> 
+                            <button onClick={ () => onRemoveTodo(todo) }>Borrar</button>                        
+                        </>
+                    )
+                                
+                        
                   })
             }
         </ul>
