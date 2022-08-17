@@ -2,15 +2,13 @@ import { TodoItem } from "./TodoItem"
 
 
 export const TodoList = ( { todos = [] , onRemoveTodo, onToggleTodo }) => {
+    
     console.log(todos)
-
-    const handleRemove = (todo) => {
-        onRemoveTodo(todo)
-    }
+    
     return (
         <ul>
             {
-                todos.map( todo => {
+                todos?.map( todo => {
                     console.log('todo desde map todoList', todo)
                     return (
                         <>
